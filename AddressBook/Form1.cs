@@ -13,6 +13,7 @@ namespace AddressBook
 {
     public partial class frmAddressList : Form
     {
+        //データベース設定
         private readonly string connStr = "server=localhost;port=3306;" +
                 "database=dbaddress;" +
                 "user=root;" +
