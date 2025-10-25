@@ -14,15 +14,15 @@ namespace AddressBook
 {
     public partial class frmAddressEdit : Form
     {
-        private String _contsctid;
-        private String _name;
-        private String _furigana;
-        private String _company;
-        private String _phone1;
-        private String _phone2;
-        private String _address;
-        private String _birthday;
-        private String _remark;
+        private string _contsctid;
+        private string _name;
+        private string _furigana;
+        private string _company;
+        private string _phone1;
+        private string _phone2;
+        private string _address;
+        private string _birthday;
+        private string _remark;
 
         private bool _isEditMode;
 
@@ -32,7 +32,7 @@ namespace AddressBook
         "password=MySQL0826//;";
 
         //編集用
-        public frmAddressEdit(String contsctid,String name,String furigana,String company,String phone1,String phone2,String address,String birthday,String remark)
+        public frmAddressEdit(string contsctid,string name,string furigana,string company,string phone1,string phone2,string address,string birthday,string remark)
         {
             InitializeComponent();
 

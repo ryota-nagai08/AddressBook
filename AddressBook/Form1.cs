@@ -79,7 +79,7 @@ namespace AddressBook
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            String sql = "SELECT " +
+            string sql = "SELECT " +
                     "fullname AS '氏名', " +
                     "companyname AS '会社名', " +
                     "concat(tel1_1,'-',tel1_2,'-',tel1_3) AS '電話番号①', " +
@@ -120,15 +120,15 @@ namespace AddressBook
         {
             if (e.RowIndex < 0) return;
 
-            String contsctid = grdList.Rows[e.RowIndex].Cells["ID"].Value.ToString();
-            String name = grdList.Rows[e.RowIndex].Cells["氏名"].Value.ToString();
-            String furigana = grdList.Rows[e.RowIndex].Cells["カナ"].Value.ToString();
-            String company = grdList.Rows[e.RowIndex].Cells["会社名"].Value.ToString();
-            String phone1 = grdList.Rows[e.RowIndex].Cells["電話番号①"].Value.ToString();
-            String phone2 = grdList.Rows[e.RowIndex].Cells["電話番号②"].Value.ToString();
-            String address = grdList.Rows[e.RowIndex].Cells["住所"].Value.ToString();
-            String birthday = grdList.Rows[e.RowIndex].Cells["生年月日"].Value.ToString();
-            String remark = grdList.Rows[e.RowIndex].Cells["備考"].Value.ToString();
+            string contsctid = grdList.Rows[e.RowIndex].Cells["ID"].Value.ToString();
+            string name = grdList.Rows[e.RowIndex].Cells["氏名"].Value.ToString();
+            string furigana = grdList.Rows[e.RowIndex].Cells["カナ"].Value.ToString();
+            string company = grdList.Rows[e.RowIndex].Cells["会社名"].Value.ToString();
+            string phone1 = grdList.Rows[e.RowIndex].Cells["電話番号①"].Value.ToString();
+            string phone2 = grdList.Rows[e.RowIndex].Cells["電話番号②"].Value.ToString();
+            string address = grdList.Rows[e.RowIndex].Cells["住所"].Value.ToString();
+            string birthday = grdList.Rows[e.RowIndex].Cells["生年月日"].Value.ToString();
+            string remark = grdList.Rows[e.RowIndex].Cells["備考"].Value.ToString();
 
             //編集フォーム開く
             frmAddressEdit frmAddressEdit = new frmAddressEdit(contsctid,name,furigana,company,phone1,phone2,address,birthday,remark);
