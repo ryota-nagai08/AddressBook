@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace AddressBook
 {
@@ -27,10 +29,7 @@ namespace AddressBook
         private bool _isEditMode;
 
         //データベース設定
-        private readonly string connStr = "server=localhost;port=3306;" +
-        "database=dbaddress;" +
-        "user=root;" +
-        "password=MySQL0826//;";
+        private readonly string connStr = ConfigurationManager.ConnectionStrings["MySqlConn"].ConnectionString;
 
         //編集用
         public frmAddressEdit(string contsctid,string name,string furigana,string company,string phone1,string phone2,string address,string birthday,string remark)

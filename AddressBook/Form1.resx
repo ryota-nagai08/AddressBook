@@ -288,6 +288,33 @@
   <data name="&gt;&gt;pnlSearch.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="btnOutPutCSV.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnOutPutCSV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>593, -2</value>
+  </data>
+  <data name="btnOutPutCSV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 40</value>
+  </data>
+  <data name="btnOutPutCSV.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnOutPutCSV.Text" xml:space="preserve">
+    <value>CSV出力</value>
+  </data>
+  <data name="&gt;&gt;btnOutPutCSV.Name" xml:space="preserve">
+    <value>btnOutPutCSV</value>
+  </data>
+  <data name="&gt;&gt;btnOutPutCSV.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnOutPutCSV.Parent" xml:space="preserve">
+    <value>pnlControl</value>
+  </data>
+  <data name="&gt;&gt;btnOutPutCSV.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="btnEdit.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
@@ -313,10 +340,13 @@
     <value>pnlControl</value>
   </data>
   <data name="&gt;&gt;btnEdit.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="pnlControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
+  </data>
+  <data name="pnlControl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="pnlControl.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 594</value>
@@ -404,9 +434,6 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1078, 644</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>連絡先一覧</value>

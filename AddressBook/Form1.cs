@@ -8,16 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace AddressBook
 {
     public partial class frmAddressList : Form
     {
         //データベース設定
-        private readonly string connStr = "server=localhost;port=3306;" +
-                "database=dbaddress;" +
-                "user=root;" +
-                "password=MySQL0826//;";
+        private readonly string connStr = ConfigurationManager.ConnectionStrings["MySqlConn"].ConnectionString;
 
         public frmAddressList()
         {
@@ -149,6 +147,81 @@ namespace AddressBook
             if (frmAddressEdit.ShowDialog() == DialogResult.OK)
             {
                 LoadAddressList();
+            }
+        }
+
+        private void btnOutPutCSV_Click(object sender, EventArgs e)
+        {
+            string sql = "SELECT " +
+                "contsctid AS 'ID', " +
+                "fullname AS '氏名', " +
+                "furigana AS 'カナ', " +
+                "companyname AS '会社名', " +
+                "concat(tel1_1,'-',tel1_2,'-',tel1_3) AS '電話番号①', " +
+                "concat(tel2_1,'-',tel2_2,'-',tel2_3) AS '電話番号②', " +
+                "address AS '住所', " +
+                "concat(birthday_year,'年',birthday_month,'月',birthday_day,'日') AS '生年月日', " +
+                "remarks AS '備考' " +
+                "FROM d_contactinformation;";
+
+            if (grdList.DataSource == null)
+            {
+                MessageBox.Show("出力するでーたがありません");
+                return;
+            }
+
+            //保存フォルダ
+            string folderPath = @"C:\temp\AddressBook\";
+
+            //フォルダが存在しない場合
+            if (!System.IO.File.Exists(folderPath))
+            {
+                System.IO.Directory.CreateDirectory(folderPath);
+            }
+
+            //日付つきファイルの作成
+            string fileName = $"address_list{DateTime.Now:yyyy-MM-dd_HH-mm}.csv";
+            string filePath = System.IO.Path.Combine(folderPath, fileName);
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connStr))
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    using (var sw = new System.IO.StreamWriter(filePath, false, Encoding.UTF8))
+                    {
+                        //ヘッダー行
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            sw.Write(reader.GetName(i));
+                            if (i < reader.FieldCount - 1) sw.Write(",");
+                        }
+                        sw.WriteLine();
+
+                        //データ行
+                        while (reader.Read())
+                        {
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                string value = reader.IsDBNull(i) ? "" : reader.GetValue(i).ToString();
+
+                                value = "\"" + value.Replace("\"", "\"\"") + "\"";
+                                value = value.Replace("\r", "").Replace("\n", "");
+
+                                sw.Write(value);
+                                if (i < reader.FieldCount - 1) sw.Write(",");
+                            }
+                            sw.WriteLine();
+                        }
+                    }
+                    MessageBox.Show("CSV出力完了");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("CSV出力中にエラー発生。\n" + ex.Message);
             }
         }
     }

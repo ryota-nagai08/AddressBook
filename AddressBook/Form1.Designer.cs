@@ -40,6 +40,7 @@
             this.pnlList = new System.Windows.Forms.Panel();
             this.grdList = new System.Windows.Forms.DataGridView();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.btnOutPutCSV = new System.Windows.Forms.Button();
             this.pnl1Title.SuspendLayout();
             this.pnlSearch.SuspendLayout();
             this.pnlControl.SuspendLayout();
@@ -86,6 +87,7 @@
             // 
             // pnlControl
             // 
+            this.pnlControl.Controls.Add(this.btnOutPutCSV);
             this.pnlControl.Controls.Add(this.btnEdit);
             resources.ApplyResources(this.pnlControl, "pnlControl");
             this.pnlControl.Name = "pnlControl";
@@ -118,6 +120,13 @@
             // 
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
+            // btnOutPutCSV
+            // 
+            resources.ApplyResources(this.btnOutPutCSV, "btnOutPutCSV");
+            this.btnOutPutCSV.Name = "btnOutPutCSV";
+            this.btnOutPutCSV.UseVisualStyleBackColor = true;
+            this.btnOutPutCSV.Click += new System.EventHandler(this.btnOutPutCSV_Click);
             // 
             // frmAddressList
             // 
@@ -154,6 +163,7 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.DataGridView grdList;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.Button btnOutPutCSV;
     }
 }
 
