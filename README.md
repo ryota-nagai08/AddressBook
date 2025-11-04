@@ -1,10 +1,12 @@
 データベース設定
 
 -- データベース作成
+
 CREATE DATABASE IF NOT EXISTS dbaddress;
 USE dbaddress;
 
 -- テーブル作成
+
 CREATE TABLE `d_contactinformation` (
     `contsctid` VARCHAR(8) NOT NULL,
     `fullname` VARCHAR(20) NULL DEFAULT NULL,
