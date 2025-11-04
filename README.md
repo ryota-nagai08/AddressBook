@@ -29,6 +29,7 @@ ENGINE=InnoDB
 COLLATE='utf8mb4_0900_ai_ci';
 
 -- データ挿入①
+
 INSERT INTO `d_contactinformation` ( 
     `contsctid`,
     `fullname`,
@@ -64,6 +65,7 @@ INSERT INTO `d_contactinformation` (
 );
 
 -- データ挿入②
+
 INSERT INTO `d_contactinformation` ( 
     `contsctid`,
     `fullname`,
